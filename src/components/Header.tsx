@@ -11,6 +11,8 @@ export default function Header() {
     subject: '',
     message: '',
   });
+  const [flowerRotation, setFlowerRotation] = useState(0);
+  const [asteriskRotation, setAsteriskRotation] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,14 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlowerRotation((prev) => (prev + 1) % 360);
+      setAsteriskRotation((prev) => (prev + 1) % 360);
+    }, 22);
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,13 +53,13 @@ export default function Header() {
         <div className="mx-auto max-w-4xl px-6 sm:px-8">
           <div className="flex items-center justify-between py-4">
             {/* Profile photo */}
-            <div className="group">
+            <div className="group origin-center">
               <Image
                 src="/profile.jpg"
                 alt="Jeremy Ng"
                 width={44}
                 height={44}
-                className="rounded-full object-cover cursor-pointer transition-transform group-hover:animate-wiggle"
+                className="rounded-full object-cover cursor-pointer animate-grow-wiggle origin-center"
               />
             </div>
 
@@ -154,9 +164,9 @@ export default function Header() {
             <span className="text-[#1a1a1a]"> IT systems that embody </span>
             <br className="hidden md:block" />
             <span className="font-serif italic text-[#1a1a1a]">efficiency</span>
-            <span className="text-[#1a1a1a]"> ✳ and feel </span>
+            <span className="text-[#1a1a1a]"> <svg className="inline-block w-5 h-5 md:w-6 md:h-6 align-middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: `rotate(${asteriskRotation}deg)`, transformOrigin: 'center' }}><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> and feel </span>
             <span className="font-serif italic text-[#1a1a1a]">effortless</span>
-            <span className="text-[#1a1a1a]"> ✿</span>
+            <span className="text-[#1a1a1a]"> <svg className="inline-block w-8 h-8 md:w-10 md:h-10 align-middle" viewBox="0 0 100 100" fill="currentColor" style={{ transform: `rotate(${flowerRotation}deg)`, transformOrigin: 'center' }}><text x="50" y="75" fontSize="80" textAnchor="middle">✿</text></svg></span>
           </h1>
         </div>
       </header>

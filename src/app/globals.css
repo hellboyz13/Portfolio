@@ -66,3 +66,37 @@ body {
 .group:hover .group-hover\:animate-wiggle {
   animation: wiggle 0.5s ease-in-out;
 }
+
+/* Spin animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+  display: inline-block;
+}
+
+/* Profile grow with intensifying wiggle */
+@keyframes grow-wiggle {
+  0% { transform: scale(1) rotate(0deg); }
+  10% { transform: scale(1.2) rotate(5deg); }
+  20% { transform: scale(1.4) rotate(-5deg); }
+  30% { transform: scale(1.6) rotate(8deg); }
+  40% { transform: scale(1.8) rotate(-8deg); }
+  50% { transform: scale(2) rotate(10deg); }
+  60% { transform: scale(2.2) rotate(-10deg); }
+  70% { transform: scale(2.5) rotate(12deg); }
+  80% { transform: scale(2.7) rotate(-12deg); }
+  90% { transform: scale(2.9) rotate(14deg); }
+  100% { transform: scale(3) rotate(0deg); }
+}
+
+.group:hover .animate-grow-wiggle {
+  animation: grow-wiggle 1.5s ease-out forwards;
+}

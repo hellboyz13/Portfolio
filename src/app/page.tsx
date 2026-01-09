@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import ExperienceSection from '@/components/ExperienceSection';
+import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import AboutSection from '@/components/AboutSection';
 import SocialLinks from '@/components/SocialLinks';
@@ -13,6 +14,7 @@ export default function Home() {
         <Header />
         <main className="font-inter">
           <ExperienceSection />
+          <SkillsSection />
           <ProjectsSection />
           <AboutSection />
         </main>
