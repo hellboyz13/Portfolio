@@ -7,24 +7,10 @@ interface TimelineItem {
   role: string;
   company: string;
   period: string;
+  current?: boolean;
   description: string[];
   skills?: string[];
-  icon: React.ReactNode;
 }
-
-const BriefcaseIcon = () => (
-  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7h-4V5a3 3 0 00-3-3h-2a3 3 0 00-3 3v2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM10 5a1 1 0 011-1h2a1 1 0 011 1v2h-4V5z" />
-  </svg>
-);
-
-const GraduationIcon = () => (
-  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5zm0 0v6" />
-  </svg>
-);
 
 const experiences: TimelineItem[] = [
   {
@@ -32,14 +18,14 @@ const experiences: TimelineItem[] = [
     role: 'IT Support Specialist, APAC',
     company: 'Cosmostar Singapore',
     period: '2024 - Present',
+    current: true,
     description: [
       'Providing comprehensive technical support across the Asia-Pacific region',
       'Managing IT infrastructure and resolving complex system issues',
       'Collaborating with global teams to implement enterprise solutions',
       'Streamlining support workflows for improved efficiency',
     ],
-    skills: ['Azure', 'Microsoft 365', 'Intune', 'ServiceNow'],
-    icon: <BriefcaseIcon />,
+    skills: ['Azure', 'Microsoft 365', 'Intune', 'Freshservice'],
   },
   {
     id: 'decathlon',
@@ -53,7 +39,6 @@ const experiences: TimelineItem[] = [
       'Led hardware refresh projects and system migrations',
     ],
     skills: ['POS Systems', 'Network Infrastructure', 'Windows', 'RFID'],
-    icon: <BriefcaseIcon />,
   },
 ];
 
@@ -63,13 +48,12 @@ const education: TimelineItem[] = [
     role: 'Bachelor in Business Information Systems',
     company: 'Murdoch University',
     period: '2023 - 2025',
+    current: true,
     description: [
       'Specializing in business analytics and enterprise information systems',
       'Coursework in database management, systems analysis, and project management',
-      'Developing expertise in bridging business needs with technical solutions',
     ],
     skills: ['Business Analytics', 'Systems Design', 'Project Management'],
-    icon: <GraduationIcon />,
   },
   {
     id: 'ngee-ann',
@@ -79,91 +63,63 @@ const education: TimelineItem[] = [
     description: [
       'Built strong foundations in programming, networking, and system administration',
       'Completed hands-on projects in software development and IT infrastructure',
-      'Gained practical experience through industry attachments',
     ],
     skills: ['Programming', 'Networking', 'System Administration'],
-    icon: <GraduationIcon />,
   },
 ];
 
-function TimelineCard({ item, isExpanded, onToggle, index }: {
+function TimelineCard({ item, isExpanded, onToggle }: {
   item: TimelineItem;
   isExpanded: boolean;
   onToggle: () => void;
-  index: number;
 }) {
   return (
     <div
-      className={`timeline-item relative overflow-hidden ${isExpanded ? 'expanded' : ''}`}
+      className={`timeline-item cursor-pointer ${item.current ? 'timeline-item--active' : ''}`}
       onClick={onToggle}
-      style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Accent bar on left */}
-      <div className="accent-bar" />
-
-      <div className="timeline-content pl-2">
-        {/* Header Row */}
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex items-start gap-3 flex-1 min-w-0">
-            {/* Icon */}
-            <div className={`icon-container shrink-0 ${isExpanded ? 'border-[var(--accent)]' : ''}`}>
-              {item.icon}
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <h3 className={`font-display font-bold text-[var(--text-primary)] mb-0.5 transition-colors ${
-                isExpanded ? 'text-[var(--accent)]' : ''
-              }`}>
-                {item.role}
-              </h3>
-              <p className="text-[var(--text-secondary)] text-sm">{item.company}</p>
-            </div>
+      {/* Header */}
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <h4 className="font-semibold text-[var(--text-primary)] text-sm">
+              {item.role}
+            </h4>
+            {item.current && (
+              <span className="tag tag--success text-[10px] py-0.5 px-1.5">CURRENT</span>
+            )}
           </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="text-xs font-semibold px-2.5 py-1.5 rounded-full bg-[var(--accent-light)] text-[var(--accent)] border border-[var(--border)]">
-              {item.period}
-            </span>
-            <div className={`p-1.5 rounded-lg bg-[var(--bg-glass)] border border-[var(--border)] transition-all duration-300 ${
-              isExpanded ? 'border-[var(--accent)] bg-[var(--accent-light)]' : ''
-            }`}>
-              <svg
-                className={`chevron w-4 h-4 text-[var(--text-muted)] ${isExpanded ? 'rotated text-[var(--accent)]' : ''}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </div>
+          <p className="text-[var(--text-muted)] text-xs font-mono">{item.company}</p>
         </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-mono text-[var(--text-dim)]">{item.period}</span>
+          <svg
+            className={`w-4 h-4 text-[var(--text-dim)] transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
 
-        {/* Expandable Content */}
-        <div
-          className={`timeline-dropdown ${isExpanded ? 'mt-4' : ''}`}
-          style={{
-            maxHeight: isExpanded ? '500px' : '0',
-            opacity: isExpanded ? 1 : 0,
-          }}
-        >
-          {/* Description */}
-          <ul className="space-y-2 mb-4 ml-[52px]">
+      {/* Expandable Content */}
+      <div className={`timeline-content ${isExpanded ? 'expanded' : ''}`}>
+        <div className="timeline-content__inner">
+          <ul className="space-y-1.5 mb-3">
             {item.description.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-[var(--text-secondary)] text-sm">
-                <span className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 bg-[var(--accent)]" />
+              <li key={idx} className="flex items-start gap-2 text-[var(--text-secondary)] text-xs">
+                <span className="w-1 h-1 rounded-full mt-1.5 bg-[var(--accent)] flex-shrink-0" />
                 {point}
               </li>
             ))}
           </ul>
 
-          {/* Skills Tags */}
           {item.skills && (
-            <div className="flex flex-wrap gap-2 ml-[52px]">
+            <div className="flex flex-wrap gap-1.5">
               {item.skills.map((skill) => (
-                <span key={skill} className="skill-pill">
-                  {skill}
-                </span>
+                <span key={skill} className="tag text-[10px]">{skill}</span>
               ))}
             </div>
           )}
@@ -174,37 +130,32 @@ function TimelineCard({ item, isExpanded, onToggle, index }: {
 }
 
 export default function ExperienceSection() {
-  const [expandedExp, setExpandedExp] = useState<string | null>(null);
+  const [expandedExp, setExpandedExp] = useState<string | null>('cosmostar');
   const [expandedEdu, setExpandedEdu] = useState<string | null>(null);
 
   return (
-    <section id="experience" className="py-16 relative">
-      {/* Decorative elements */}
-      <div className="section-decorator -left-32 top-0" />
+    <div className="bento-card h-full flex flex-col">
+      {/* Header */}
+      <div className="mb-4">
+        <div className="section-label">Experience</div>
+        <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+          Career Timeline
+        </h3>
+      </div>
 
       {/* Work Experience */}
-      <div className="mb-16">
-        {/* Section Label */}
-        <div className="section-label">
-          <span>Recent Adventures</span>
+      <div className="mb-6">
+        <div className="flex items-center gap-2 mb-3">
+          <svg className="w-4 h-4 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">Work</span>
         </div>
-
-        {/* Section Title */}
-        <h2 className="font-serif text-3xl md:text-4xl text-[var(--text-primary)] mb-2">
-          Where I&apos;ve been <span className="italic text-gradient">working</span>
-        </h2>
-
-        <p className="text-[var(--text-secondary)] mb-8 max-w-lg">
-          Building expertise through hands-on experience in enterprise IT environments.
-        </p>
-
-        {/* Experience Cards */}
-        <div className="space-y-4">
-          {experiences.map((exp, index) => (
+        <div className="space-y-2">
+          {experiences.map((exp) => (
             <TimelineCard
               key={exp.id}
               item={exp}
-              index={index}
               isExpanded={expandedExp === exp.id}
               onToggle={() => setExpandedExp(expandedExp === exp.id ? null : exp.id)}
             />
@@ -213,37 +164,25 @@ export default function ExperienceSection() {
       </div>
 
       {/* Education */}
-      <div className="relative">
-        {/* Decorative element */}
-        <div className="section-decorator right-0 top-0" />
-
-        {/* Section Label */}
-        <div className="section-label">
-          <span>Training Arc</span>
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <svg className="w-4 h-4 text-[var(--highlight)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+          <span className="text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider">Education</span>
         </div>
-
-        {/* Section Title */}
-        <h2 className="font-serif text-3xl md:text-4xl text-[var(--text-primary)] mb-2">
-          My <span className="italic text-gradient">academic</span> journey
-        </h2>
-
-        <p className="text-[var(--text-secondary)] mb-8 max-w-lg">
-          Continuous learning to bridge the gap between technology and business.
-        </p>
-
-        {/* Education Cards */}
-        <div className="space-y-4">
-          {education.map((edu, index) => (
+        <div className="space-y-2">
+          {education.map((edu) => (
             <TimelineCard
               key={edu.id}
               item={edu}
-              index={index}
               isExpanded={expandedEdu === edu.id}
               onToggle={() => setExpandedEdu(expandedEdu === edu.id ? null : edu.id)}
             />
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
