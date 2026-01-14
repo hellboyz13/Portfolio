@@ -53,8 +53,16 @@ export default function Navigation() {
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
+
+    // Add transition class for smooth theme change
+    document.documentElement.classList.add('theme-transition');
     document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transition');
+    }, 650);
   };
 
   return (
@@ -80,9 +88,9 @@ export default function Navigation() {
         {/* Actions */}
         <div className="nav__actions">
           {/* Status */}
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--success-dim)] border border-[rgba(132,204,22,0.2)]">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(34,197,94,0.15)] border border-[rgba(34,197,94,0.25)]">
             <div className="status-dot" />
-            <span className="text-xs font-mono text-[var(--success)]">Available</span>
+            <span className="text-xs font-mono text-[#22c55e]">Available</span>
           </div>
 
           {/* Theme Toggle */}

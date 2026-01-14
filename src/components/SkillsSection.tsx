@@ -53,26 +53,32 @@ const skillCategories = [
   },
 ];
 
+// Desert Sunset Palette - harmonious warm tones
 const colorStyles: Record<string, { icon: string; tag: string }> = {
   accent: {
-    icon: 'bg-[var(--accent-dim)] border-[var(--border-accent)] text-[var(--accent)]',
-    tag: 'tag--accent',
+    // Coral Orange - main accent
+    icon: 'bg-[rgba(255,107,74,0.12)] border-[rgba(255,107,74,0.35)] text-[#ff6b4a]',
+    tag: 'tag--coral',
   },
   pink: {
-    icon: 'bg-[rgba(236,72,153,0.1)] border-[rgba(236,72,153,0.3)] text-[#ec4899]',
-    tag: 'tag--pink',
+    // Crimson Ember - warm red
+    icon: 'bg-[rgba(230,57,70,0.12)] border-[rgba(230,57,70,0.35)] text-[#e63946]',
+    tag: 'tag--ember',
   },
   success: {
-    icon: 'bg-[var(--success-dim)] border-[rgba(132,204,22,0.3)] text-[var(--success)]',
-    tag: 'tag--success',
+    // Golden Amber
+    icon: 'bg-[rgba(245,158,11,0.12)] border-[rgba(245,158,11,0.35)] text-[#f59e0b]',
+    tag: 'tag--amber',
   },
   highlight: {
-    icon: 'bg-[var(--highlight-dim)] border-[rgba(167,139,250,0.3)] text-[var(--highlight)]',
-    tag: 'tag--highlight',
+    // Terracotta - earthy orange-brown
+    icon: 'bg-[rgba(194,112,58,0.12)] border-[rgba(194,112,58,0.35)] text-[#c2703a]',
+    tag: 'tag--terracotta',
   },
   warning: {
-    icon: 'bg-[var(--warning-dim)] border-[rgba(251,191,36,0.3)] text-[var(--warning)]',
-    tag: '',
+    // Sand Gold - muted warm tan
+    icon: 'bg-[rgba(212,165,116,0.15)] border-[rgba(212,165,116,0.4)] text-[#d4a574]',
+    tag: 'tag--sand',
   },
 };
 
@@ -114,9 +120,9 @@ export default function SkillsSection() {
       {/* Terminal-style footer */}
       <div className="mt-6 pt-4 border-t border-[var(--border)]">
         <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-dim)]">
-          <span className="text-[var(--success)]">$</span>
+          <span className="text-[#f59e0b]">$</span>
           <span>system.skills.status</span>
-          <span className="text-[var(--success)]">// all modules loaded</span>
+          <span className="text-[#f59e0b]">// all modules loaded</span>
         </div>
       </div>
     </div>

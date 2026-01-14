@@ -52,7 +52,7 @@ export default function ContactSection() {
         <div className="space-y-3">
           <div>
             <label className="block text-xs font-mono text-[var(--text-dim)] mb-1.5">
-              <span className="text-[var(--accent)]">$</span> name
+              name
             </label>
             <input
               type="text"
@@ -66,7 +66,7 @@ export default function ContactSection() {
 
           <div>
             <label className="block text-xs font-mono text-[var(--text-dim)] mb-1.5">
-              <span className="text-[var(--accent)]">$</span> subject
+              subject
             </label>
             <input
               type="text"
@@ -80,7 +80,7 @@ export default function ContactSection() {
 
           <div>
             <label className="block text-xs font-mono text-[var(--text-dim)] mb-1.5">
-              <span className="text-[var(--accent)]">$</span> message
+              message
             </label>
             <textarea
               required
