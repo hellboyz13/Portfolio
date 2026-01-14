@@ -113,8 +113,7 @@ export default function AboutSection() {
               'Based in Singapore',
               'Supports teams across 4 APAC countries',
               'Microsoft 365 & Intune daily driver',
-              'Kopi-C over coffee',
-              'Probably has too many browser tabs open',
+              'Coke Zero over coffee',
               'Building side projects when not troubleshooting',
             ].map((fact, idx) => (
               <li key={idx} className="flex items-center gap-2.5 text-[var(--text-secondary)] text-sm">
