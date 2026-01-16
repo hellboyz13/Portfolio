@@ -148,6 +148,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Theme transition - smooth fade between light/dark */
@@ -170,6 +171,8 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ===== Typography ===== */
@@ -994,18 +997,35 @@ html.theme-transition .text-gradient {
   }
 
   .project-card__content {
-    padding: 12px;
+    padding: 10px 12px;
   }
 
   .project-card__content p {
     font-size: 11px;
-    line-height: 1.4;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .project-card__content h4 {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .project-card__image {
-    aspect-ratio: 16/10;
+    aspect-ratio: 4/3;
+  }
+
+  .project-card__content {
+    padding: 8px 10px;
+  }
+
+  .project-card__content p {
+    font-size: 10px;
+  }
+
+  .project-card__content h4 {
+    font-size: 13px;
   }
 }
 
@@ -1394,6 +1414,18 @@ html.theme-transition .text-gradient {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 8px;
+  }
 }
 
 .sr-only {

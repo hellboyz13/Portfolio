@@ -62,32 +62,32 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         />
       </div>
 
-      <div className="project-card__content p-3 sm:p-6">
-        {/* Mobile: Stack vertically, Desktop: Side by side */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-2 sm:mb-3">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <span className="text-xl sm:text-2xl">{project.icon}</span>
-            <h4 className="text-base sm:text-lg font-bold text-[var(--text-primary)] tracking-tight">{project.title}</h4>
+      <div className="project-card__content">
+        {/* Mobile: Horizontal row, Desktop: Side by side with more space */}
+        <div className="flex items-center justify-between gap-2 sm:gap-4 mb-1 sm:mb-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+            <span className="text-base sm:text-2xl flex-shrink-0">{project.icon}</span>
+            <h4 className="text-sm sm:text-lg font-bold text-[var(--text-primary)] tracking-tight truncate">{project.title}</h4>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
             {project.redditUrl && <RedditBadge url={project.redditUrl} />}
 
             <a
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[var(--bg-tertiary)] border-2 border-[var(--border)] text-[var(--text-secondary)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] hover:border-[var(--accent)] transition-colors duration-300"
+              className="flex items-center justify-center w-7 h-7 sm:w-10 sm:h-10 rounded-lg bg-[var(--bg-tertiary)] border border-[var(--border)] text-[var(--text-secondary)] hover:bg-[var(--accent)] hover:text-[var(--bg-primary)] hover:border-[var(--accent)] transition-colors duration-300"
               title="Visit site"
             >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
           </div>
         </div>
 
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">{project.description}</p>
+        <p className="text-[11px] sm:text-sm text-[var(--text-secondary)] leading-snug line-clamp-2 sm:line-clamp-none">{project.description}</p>
       </div>
     </div>
   );
