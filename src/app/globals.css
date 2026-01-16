@@ -985,13 +985,35 @@ html.theme-transition .text-gradient {
   overflow: hidden;
 }
 
-@media (max-width: 768px) {
+/* Unfolded foldables & tablets (600px - 1024px) */
+@media (max-width: 1024px) {
   .project-card,
   .project-card-simple {
     max-width: 100%;
     border-width: 2px;
   }
 
+  .project-card__image {
+    aspect-ratio: 3/4;
+  }
+
+  .project-card__content {
+    padding: 14px 16px;
+  }
+
+  .project-card__content p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .project-card__content h4 {
+    font-size: 16px;
+  }
+}
+
+/* Standard phones & folded foldables (320px - 768px) */
+@media (max-width: 768px) {
   .project-card__image {
     aspect-ratio: 9/16;
   }
@@ -1003,11 +1025,29 @@ html.theme-transition .text-gradient {
   .project-card__content p {
     font-size: 11px;
     line-height: 1.3;
-    margin: 0;
   }
 
   .project-card__content h4 {
     font-size: 14px;
+  }
+}
+
+/* Flip phones & very narrow screens (<400px) */
+@media (max-width: 400px) {
+  .project-card__image {
+    aspect-ratio: 9/19;
+  }
+
+  .project-card__content {
+    padding: 8px 10px;
+  }
+
+  .project-card__content p {
+    font-size: 10px;
+  }
+
+  .project-card__content h4 {
+    font-size: 13px;
   }
 }
 
