@@ -983,21 +983,29 @@ html.theme-transition .text-gradient {
 }
 
 @media (max-width: 768px) {
-  .project-card {
+  .project-card,
+  .project-card-simple {
     max-width: 100%;
+    border-width: 2px;
   }
 
   .project-card__image {
-    aspect-ratio: 16/8;
+    aspect-ratio: 16/9;
   }
 
   .project-card__content {
-    padding: 12px 16px;
+    padding: 12px;
   }
 
   .project-card__content p {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card__image {
+    aspect-ratio: 16/10;
   }
 }
 
