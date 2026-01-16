@@ -211,6 +211,12 @@ body {
   .bento-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Reset all col-span on mobile to single column */
+  .bento-grid > * {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
 }
 
 /* Span utilities */
@@ -840,6 +846,19 @@ body {
   .project-card {
     max-width: 100%;
   }
+
+  .project-card__image {
+    aspect-ratio: 16/8;
+  }
+
+  .project-card__content {
+    padding: 12px 16px;
+  }
+
+  .project-card__content p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
 }
 
 .project-card:hover {
@@ -1123,16 +1142,97 @@ body {
     font-size: clamp(36px, 12vw, 64px);
   }
 
+  .hero-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
   .bento-card {
-    padding: 20px;
+    padding: 16px;
   }
 
   .stat-value {
-    font-size: 36px;
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 10px;
   }
 
   .nav__inner {
-    padding: 0 16px;
+    padding: 0 12px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .terminal-text {
+    font-size: 11px;
+  }
+
+  .status-badge {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .timeline-item {
+    padding: 14px 16px;
+  }
+
+  .timeline-item h4 {
+    font-size: 13px;
+  }
+
+  .section-label {
+    font-size: 10px;
+  }
+
+  .skill-module {
+    padding: 12px;
+  }
+
+  .skill-module__title {
+    font-size: 12px;
+  }
+
+  .skill-module__tags {
+    gap: 4px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  /* Contact form mobile */
+  .contact-form {
+    padding: 12px !important;
+  }
+
+  .contact-form .input {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(32px, 14vw, 48px);
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .bento-card {
+    padding: 12px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
 
