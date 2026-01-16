@@ -13,7 +13,25 @@
       "Bash(git remote add:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(taskkill:*)",
+      "Skill(frontend-design)",
+      "Skill(frontend-design:*)",
+      "Bash(git checkout:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" status)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" diff --staged --stat)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" log -3 --oneline)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" add src/app/globals.css src/app/layout.tsx src/app/page.tsx src/components/AboutSection.tsx src/components/ExperienceSection.tsx src/components/Header.tsx src/components/ProjectsSection.tsx src/components/SkillsSection.tsx src/components/SocialLinks.tsx)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" commit -m \"$\\(cat <<''EOF''\nEnhance portfolio design with glassmorphism and mobile-friendly updates\n\n- Add glassmorphism styling with backdrop blur and gradient mesh backgrounds\n- Implement new fonts: Instrument Serif, Sora, Plus Jakarta Sans\n- Add floating gradient orbs and decorative elements\n- Make hover effects mobile-friendly using @media \\(hover: hover\\)\n- Brighten dark mode text colors for better readability\n- Simplify footer to copyright and social links only\n- Remove GitHub link from social links\n- Remove profile image and personal motto from About section\n- Fix About section grid layout to proper 2x2 alignment\n- Add icons and visual enhancements to all sections\n- Add CSS animations for floating, ping, and rotating effects\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" push)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" add src/components/AboutSection.tsx)",
+      "Bash(git -C \"c:\\\\Users\\\\JeremyNg\\\\Portfolio\" commit -m \"$\\(cat <<''EOF''\nUpdate quick facts in About section\n\n- Change ''Kopi-C over coffee'' to ''Coke Zero over coffee''\n- Remove browser tabs fact\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(tasklist:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ]
   }
 }

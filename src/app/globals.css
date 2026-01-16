@@ -993,7 +993,7 @@ html.theme-transition .text-gradient {
   }
 
   .project-card__image {
-    aspect-ratio: 16/9;
+    aspect-ratio: 9/16;
   }
 
   .project-card__content {
@@ -1008,24 +1008,6 @@ html.theme-transition .text-gradient {
 
   .project-card__content h4 {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card__image {
-    aspect-ratio: 9/16;
-  }
-
-  .project-card__content {
-    padding: 8px 10px;
-  }
-
-  .project-card__content p {
-    font-size: 10px;
-  }
-
-  .project-card__content h4 {
-    font-size: 13px;
   }
 }
 
