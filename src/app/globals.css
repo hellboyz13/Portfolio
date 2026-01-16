@@ -1013,7 +1013,7 @@ html.theme-transition .text-gradient {
 
 @media (max-width: 480px) {
   .project-card__image {
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/4;
   }
 
   .project-card__content {
