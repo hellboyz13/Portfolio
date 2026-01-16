@@ -5,7 +5,6 @@ export default function AboutSection() {
     { icon: '📍', text: 'Based in Singapore' },
     { icon: '🌏', text: '4 APAC countries' },
     { icon: '☁️', text: 'Microsoft 365 daily' },
-    { icon: '🥤', text: 'Coke Zero > Coffee' },
   ];
 
   return (

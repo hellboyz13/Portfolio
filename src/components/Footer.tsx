@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="footer__copyright">
-            <span className="text-[var(--accent)]">&gt;</span> {currentYear} Jeremy Ng • Built with Next.js
+{currentYear} Jeremy Ng
           </div>
         </div>
       </div>

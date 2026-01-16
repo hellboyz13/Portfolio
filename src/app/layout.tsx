@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-theme="dark">
       <body className={`${instrumentSerif.variable} ${sora.variable} ${jakarta.variable} font-body antialiased`}>
         {/* Gradient mesh background */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
