@@ -1136,7 +1136,7 @@ html.theme-transition .text-gradient {
   }
 
   .project-card__image {
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/5;
   }
 
   .project-card__content {
@@ -1157,7 +1157,7 @@ html.theme-transition .text-gradient {
 /* Standard phones & folded foldables (320px - 768px) */
 @media (max-width: 768px) {
   .project-card__image {
-    aspect-ratio: 9/16;
+    aspect-ratio: 3/4;
   }
 
   .project-card__content {
@@ -1201,7 +1201,7 @@ html.theme-transition .text-gradient {
 /* Flip phones & very narrow screens (<400px) */
 @media (max-width: 400px) {
   .project-card__image {
-    aspect-ratio: 9/19;
+    aspect-ratio: 3/5;
   }
 
   .project-card__content {
