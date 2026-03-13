@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="footer__links">
             <a
-              href="https://linkedin.com/in/jeremyngky"
+              href="https://www.linkedin.com/in/jeremynky/"
               target="_blank"
               rel="noreferrer"
               className="footer__link flex items-center gap-2"
