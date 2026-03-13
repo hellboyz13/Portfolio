@@ -4,18 +4,18 @@ import { useEffect, useState } from 'react';
 
 const stats = [
   { value: '4', label: 'APAC Countries', suffix: '' },
-  { value: '3', label: 'Years Experience', suffix: '+' },
+  { value: '5', label: 'Years Experience', suffix: '' },
   { value: '500', label: 'Tickets Resolved', suffix: '+' },
   { value: '99', label: 'Uptime Target', suffix: '%' },
 ];
 
 export default function StatsSection({ mounted }: { mounted: boolean }) {
-  const [counts, setCounts] = useState(stats.map(() => 0));
+  const [counts, setCounts] = useState<number[]>(stats.map(() => 0));
 
   useEffect(() => {
     if (!mounted) return;
 
-    const targets = stats.map(s => parseInt(s.value));
+    const targets = stats.map(s => parseFloat(s.value));
     const duration = 2000;
     const steps = 60;
     const increment = duration / steps;
@@ -26,7 +26,10 @@ export default function StatsSection({ mounted }: { mounted: boolean }) {
       const progress = step / steps;
       const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
 
-      setCounts(targets.map(target => Math.floor(target * eased)));
+      setCounts(targets.map(target => {
+            const val = target * eased;
+            return target % 1 !== 0 ? Math.round(val * 10) / 10 : Math.floor(val);
+          }));
 
       if (step >= steps) {
         clearInterval(timer);

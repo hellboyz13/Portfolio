@@ -80,12 +80,15 @@ export default function HeroSection({ mounted }: { mounted: boolean }) {
       {/* Content */}
       <div className="relative z-10">
         {/* Terminal-style greeting */}
-        <div className={`flex items-center gap-3 mb-6 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`flex items-center gap-3 mb-6 flex-wrap ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <span className="terminal-text">~/jeremy-ng</span>
           <span className="text-[var(--text-dim)]">/</span>
-          <div className="status-badge">
-            <div className="status-dot" />
-            <span>Open to opportunities</span>
+          <div className="location-badge">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Singapore</span>
           </div>
         </div>
 
@@ -106,7 +109,7 @@ export default function HeroSection({ mounted }: { mounted: boolean }) {
 
         {/* Description */}
         <p className={`hero-subtitle mb-8 ${mounted ? 'animate-fade-in-up delay-300' : 'opacity-0'}`}>
-          Keeping systems running smoothly across{' '}
+          Based in <span className="text-[var(--accent)] font-semibold">Singapore</span>, keeping systems running smoothly across{' '}
           <span className="text-[var(--accent)] font-semibold">4 APAC countries</span>.
           <br className="hidden sm:block" />
           Turning complexity into clarity, one ticket at a time.

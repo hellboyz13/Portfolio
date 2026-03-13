@@ -1,12 +1,6 @@
 'use client';
 
 export default function AboutSection() {
-  const quickFacts = [
-    { icon: '📍', text: 'Based in Singapore' },
-    { icon: '🌏', text: '4 APAC countries' },
-    { icon: '☁️', text: 'Microsoft 365 daily' },
-  ];
-
   return (
     <div className="bento-card h-full">
       {/* Header */}
@@ -25,19 +19,6 @@ export default function AboutSection() {
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
           That curiosity turned into a career. Today, I manage IT operations across Singapore, Vietnam, Indonesia, and China.
         </p>
-      </div>
-
-      {/* Quick Facts */}
-      <div className="grid grid-cols-2 gap-2 mb-5">
-        {quickFacts.map((fact, idx) => (
-          <div
-            key={idx}
-            className="flex items-center gap-2 p-2.5 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border)]"
-          >
-            <span className="text-base">{fact.icon}</span>
-            <span className="text-xs text-[var(--text-secondary)]">{fact.text}</span>
-          </div>
-        ))}
       </div>
 
       {/* Values */}
